@@ -1,0 +1,44 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: user9-poi-gateway-app-dev
+  annotations:
+    argocd/app-name: user9-poi-gateway-app-dev
+    backstage.io/kubernetes-id: user9-poi-gateway-app-dev
+    backstage.io/kubernetes-namespace: user9
+    backstage.io/kubernetes-label-selector: 'app.kubernetes.io/instance=user9-poi-gateway-app-dev'
+    backstage.io/techdocs-ref: dir:.
+    github.com/project-slug: janus-rbrc5/user9-gateway
+  tags:
+    - java
+    - quarkus
+    - maven
+    - workshop
+  links:
+    - url: https://console-openshift-console.cluster-rbrc5.rbrc5.sandbox1759.opentlc.com/dev-pipelines/ns/user9/
+      title: Pipelines
+      icon: web
+    - url: https://console-openshift-console.cluster-rbrc5.rbrc5.sandbox1759.opentlc.com/k8s/ns/user9/deployments/poi-gateway-app
+      title: Deployment
+      icon: web
+    - url: https://devspaces.cluster-rbrc5.rbrc5.sandbox1759.opentlc.com/#https://github.com/janus-rbrc5/user9-gateway?che-editor=che-incubator/che-code/latest&devfilePath=.devfile-vscode.yaml
+      title: OpenShift Dev Spaces (VS Code)
+      icon: web
+spec:
+  type: service
+  lifecycle: production
+  owner: "user:ryanj"
+  system: workshop-system-user9
+---
+apiVersion: backstage.io/v1alpha1
+kind: System
+metadata:
+  name: workshop-system-user9
+  tags:
+    - backstage
+    - janus-idp
+    - openshift
+    - workshop
+    - rh-summit
+spec:
+  owner: "user:ryanj"
